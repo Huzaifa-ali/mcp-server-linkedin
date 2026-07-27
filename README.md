@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="LinkedIn MCP Server — Plug AI into LinkedIn" width="100%" />
+</p>
+
 # LinkedIn MCP Server
 
 [![PyPI](https://img.shields.io/pypi/v/mcp-server-linkedin.svg)](https://pypi.org/project/mcp-server-linkedin/)
