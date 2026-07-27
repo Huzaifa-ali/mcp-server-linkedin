@@ -22,21 +22,28 @@ This guide walks you through the complete setup from creating a LinkedIn app to 
 
 1. Go to the [LinkedIn Developer Portal](https://www.linkedin.com/developers/apps)
 2. Click **"Create app"**
+
+<p align="center">
+  <img src="images/01-developer-portal.png" alt="LinkedIn Developer Portal — Click Create app" width="700" />
+</p>
+
 3. Fill in the required fields:
 
 | Field | What to enter |
 |-------|---------------|
-| **App name** | Any name (e.g., "My AI Publisher") |
+| **App name** | Any name (e.g., "Post Kit", "My AI Publisher") |
 | **LinkedIn Page** | Select your LinkedIn Company Page* |
 | **Privacy policy URL** | Your website URL (can be your GitHub repo URL) |
 | **App logo** | Upload any square image (100x100px minimum) |
 
-4. Check the legal agreement box and click **"Create app"**
+4. Check the **"I have read and agree to these terms"** box
+5. Click **"Create app"**
 
-> *LinkedIn requires a Company Page. If you don't have one, [create a Company Page](https://www.linkedin.com/company/setup/new/) first (takes 30 seconds — you can use your name as the company name).
+<p align="center">
+  <img src="images/02-create-app.png" alt="LinkedIn Create App form" width="600" />
+</p>
 
-<!-- SCREENSHOT: LinkedIn Create App form filled out -->
-<!-- Place screenshot at: docs/images/01-create-app.png -->
+> *LinkedIn requires a Company Page. If you don't have one, click **"+ Create a new LinkedIn Page"** shown on the form (takes 30 seconds — you can use your own name as the company name).
 
 ---
 
@@ -45,26 +52,26 @@ This guide walks you through the complete setup from creating a LinkedIn app to 
 After creating your app, you need to enable two products:
 
 1. Go to your app → **Products** tab
-2. Request access to these two products:
+2. Make sure these two products appear under **"Added products"**:
 
 | Product | Why it's needed |
 |---------|----------------|
 | **Share on LinkedIn** | Allows posting text, images, videos, articles |
 | **Sign In with LinkedIn using OpenID Connect** | Provides profile access + OAuth scopes |
 
-3. Click **"Request access"** for each product
-4. Accept the terms
+3. If they're not already added, click **"Request access"** for each and accept the terms
+
+<p align="center">
+  <img src="images/03-products.png" alt="Products tab showing Share on LinkedIn and Sign In with OpenID Connect added" width="700" />
+</p>
 
 > Both products should be approved **instantly** for most developers. If "Share on LinkedIn" shows as pending, wait a few minutes and refresh.
 
-<!-- SCREENSHOT: Products tab showing both products enabled/requested -->
-<!-- Place screenshot at: docs/images/02-products.png -->
-
-After approval, your app will have these OAuth 2.0 scopes available:
+After approval, your app will have these OAuth 2.0 scopes:
 - `openid` — OpenID Connect
 - `profile` — Read basic profile
 - `email` — Read email address
-- `w_member_social` — Create, edit, delete posts
+- `w_member_social` — Create, modify, and delete posts
 
 ---
 
@@ -72,8 +79,8 @@ After approval, your app will have these OAuth 2.0 scopes available:
 
 1. Go to your app → **Auth** tab
 2. Scroll down to **"OAuth 2.0 settings"**
-3. Under **"Authorized redirect URLs for your app"**, click the pencil/edit icon
-4. Add this URL:
+3. Under **"Authorized redirect URLs for your app"**, click the pencil (edit) icon
+4. Add this exact URL:
 
 ```
 http://localhost:3000/callback
@@ -81,29 +88,27 @@ http://localhost:3000/callback
 
 5. Click **"Update"** to save
 
-> This is the URL where LinkedIn sends the authorization code after you log in. The MCP server starts a temporary local server on port 3000 to capture it.
-
-<!-- SCREENSHOT: Auth tab showing redirect URL configured -->
-<!-- Place screenshot at: docs/images/03-redirect-url.png -->
+> This is the URL where LinkedIn sends the authorization code after you log in. The MCP server starts a temporary local server on port 3000 to capture it automatically.
 
 ---
 
 ## 4. Get Your Client ID and Secret
 
 1. Stay on the **Auth** tab
-2. You'll see two values at the top:
+2. At the top under **"Application credentials"**, you'll see:
 
 | Field | Description |
 |-------|-------------|
-| **Client ID** | A public identifier for your app (e.g., `77abc123xyz`) |
-| **Client Secret** | A private key — **never share this publicly** |
+| **Client ID** | A public identifier for your app (e.g., `77hiy6ir3rz91y`) |
+| **Primary Client Secret** | A private key — click the eye icon to reveal it |
 
-3. Click the eye icon to reveal the Client Secret, then copy both values
+3. Copy both values — you'll need them in the next step
 
-> Keep these safe. You'll need them in the next step.
+<p align="center">
+  <img src="images/04-auth.png" alt="Auth tab showing Client ID, Client Secret, redirect URL, and OAuth scopes" width="700" />
+</p>
 
-<!-- SCREENSHOT: Auth tab showing Client ID and Client Secret fields (secret blurred) -->
-<!-- Place screenshot at: docs/images/04-credentials.png -->
+> **Important:** Never share your Client Secret publicly. Treat it like a password.
 
 ---
 
@@ -276,21 +281,13 @@ Add to your Windsurf MCP configuration:
 
 > "Authenticate with LinkedIn"
 
-3. Your browser will open to LinkedIn's login/consent page:
-
-<!-- SCREENSHOT: LinkedIn OAuth consent screen showing permissions -->
-<!-- Place screenshot at: docs/images/05-oauth-consent.png -->
-
-4. Click **"Allow"** to authorize
-5. You'll see a success page in your browser:
-
-<!-- SCREENSHOT: Browser showing "Authentication successful! You can close this window." -->
-<!-- Place screenshot at: docs/images/06-auth-success.png -->
-
-6. Back in your AI client, you'll see a confirmation:
+3. Your browser will open to LinkedIn's login/consent page
+4. Click **"Allow"** to authorize the app
+5. You'll see a success page in your browser: *"Authentication successful! You can close this window."*
+6. Back in your AI client, you'll see:
 
 ```
-Successfully authenticated as Jane Developer. Token expires in 59 days.
+Successfully authenticated as Your Name. Token expires in 59 days.
 ```
 
 > The token is saved to `~/.mcp-server-linkedin/token.json` and lasts **2 months**. You won't need to authenticate again until it expires.
