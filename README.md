@@ -1,16 +1,23 @@
+<h1 align="center">LinkedIn MCP Server</h1>
+
 <p align="center">
-  <img src="assets/banner.png" alt="LinkedIn MCP Server — Plug AI into LinkedIn" width="100%" />
+  <a href="https://pypi.org/project/mcp-server-linkedin/"><img src="https://img.shields.io/pypi/v/mcp-server-linkedin.svg" alt="PyPI"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+  <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-compatible-purple.svg" alt="MCP"></a>
+  <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
 </p>
 
-# LinkedIn MCP Server
+<p align="center">
+  <img src="assets/banner.png" alt="LinkedIn MCP Server — Plug AI into LinkedIn" width="600" />
+</p>
 
-[![PyPI](https://img.shields.io/pypi/v/mcp-server-linkedin.svg)](https://pypi.org/project/mcp-server-linkedin/)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MCP](https://img.shields.io/badge/MCP-compatible-purple.svg)](https://modelcontextprotocol.io)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+<p align="center">
+  <strong>Publish posts, images, videos, and articles to LinkedIn from any AI agent.</strong><br>
+  Works with Claude, Cursor, Kiro, VS Code Copilot, Windsurf, and more.
+</p>
 
-The LinkedIn MCP Server connects AI tools directly to LinkedIn's platform. Publish posts with text, images, videos, and article links — all through natural language from any MCP-compatible client.
+---
 
 ### Use Cases
 
