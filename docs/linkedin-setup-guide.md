@@ -24,7 +24,7 @@ This guide walks you through the complete setup from creating a LinkedIn app to 
 2. Click **"Create app"**
 
 <p align="center">
-  <img src="images/01-developer-portal.png" alt="LinkedIn Developer Portal — Click Create app" width="700" />
+  <img src="../assets/linkedin-setup-guide/screencapture-developer-linkedin-2026-07-27-18_50_26.png" alt="LinkedIn Developer Portal — Click Create app" width="700" />
 </p>
 
 3. Fill in the required fields:
@@ -40,7 +40,7 @@ This guide walks you through the complete setup from creating a LinkedIn app to 
 5. Click **"Create app"**
 
 <p align="center">
-  <img src="images/02-create-app.png" alt="LinkedIn Create App form" width="600" />
+  <img src="../assets/linkedin-setup-guide/screencapture-linkedin-developers-apps-new-2026-07-27-18_51_48.png" alt="LinkedIn Create App form" width="600" />
 </p>
 
 > *LinkedIn requires a Company Page. If you don't have one, click **"+ Create a new LinkedIn Page"** shown on the form (takes 30 seconds — you can use your own name as the company name).
@@ -62,7 +62,7 @@ After creating your app, you need to enable two products:
 3. If they're not already added, click **"Request access"** for each and accept the terms
 
 <p align="center">
-  <img src="images/03-products.png" alt="Products tab showing Share on LinkedIn and Sign In with OpenID Connect added" width="700" />
+  <img src="../assets/linkedin-setup-guide/screencapture-linkedin-developers-apps-261690045-products-2026-07-27-18_52_38-redacted_dot_app.png" alt="Products tab showing Share on LinkedIn and Sign In with OpenID Connect added" width="700" />
 </p>
 
 > Both products should be approved **instantly** for most developers. If "Share on LinkedIn" shows as pending, wait a few minutes and refresh.
@@ -105,7 +105,7 @@ http://localhost:3000/callback
 3. Copy both values — you'll need them in the next step
 
 <p align="center">
-  <img src="images/04-auth.png" alt="Auth tab showing Client ID, Client Secret, redirect URL, and OAuth scopes" width="700" />
+  <img src="../assets/linkedin-setup-guide/screencapture-linkedin-developers-apps-261690045-auth-2026-07-27-18_53_21-redacted_dot_app.png" alt="Auth tab showing Client ID, Client Secret, redirect URL, and OAuth scopes" width="700" />
 </p>
 
 > **Important:** Never share your Client Secret publicly. Treat it like a password.
