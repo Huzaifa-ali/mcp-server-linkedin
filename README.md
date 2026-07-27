@@ -36,7 +36,8 @@ Built for developers and content creators who want their AI tools to publish dir
 ### Prerequisites
 
 1. **Python 3.10+**
-2. **LinkedIn App** — Create one at [LinkedIn Developer Portal](https://www.linkedin.com/developers/apps)
+2. **LinkedIn App** — Follow the [**step-by-step setup guide**](docs/setup-guide.md) or the quick version below:
+   - Create an app at [LinkedIn Developer Portal](https://www.linkedin.com/developers/apps)
    - Products: "Share on LinkedIn" + "Sign In with LinkedIn using OpenID Connect"
    - OAuth 2.0 scopes: `openid`, `profile`, `email`, `w_member_social`
    - Redirect URL: `http://localhost:3000/callback`
