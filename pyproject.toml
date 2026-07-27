@@ -1,0 +1,129 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-server-linkedin"
+version = "0.2.0"
+description = "MCP server for LinkedIn — post text, images, videos, and articles via the official LinkedIn API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Huzaifa Malik" }]
+keywords = ["mcp", "linkedin", "ai", "automation", "social-media"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "mcp[cli]>=1.0.0,<2",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.5.0",
+    "mypy>=1.10",
+    "pre-commit>=3.7",
+]
+
+[project.urls]
+Homepage = "https://github.com/huzaifamalik47/mcp-server-linkedin"
+Repository = "https://github.com/huzaifamalik47/mcp-server-linkedin"
+Issues = "https://github.com/huzaifamalik47/mcp-server-linkedin/issues"
+Changelog = "https://github.com/huzaifamalik47/mcp-server-linkedin/blob/main/CHANGELOG.md"
+
+[project.scripts]
+mcp-server-linkedin = "mcp_server_linkedin.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_server_linkedin"]
+
+# ---------------------------------------------------------------------------
+# Ruff — linter + formatter (replaces flake8, isort, black)
+# ---------------------------------------------------------------------------
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "W",    # pycodestyle warnings
+    "UP",   # pyupgrade
+    "ANN",  # flake8-annotations
+    "B",    # flake8-bugbear
+    "A",    # flake8-builtins
+    "C4",   # flake8-comprehensions
+    "RUF",  # Ruff-specific rules
+]
+ignore = [
+    "ANN101",  # missing type annotation for self
+    "ANN102",  # missing type annotation for cls
+    "ANN401",  # dynamically typed expressions (Any) are allowed in some cases
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["mcp_server_linkedin"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+# ---------------------------------------------------------------------------
+# Mypy — static type checking
+# ---------------------------------------------------------------------------
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[[tool.mypy.overrides]]
+module = ["mcp.*"]
+ignore_missing_imports = true
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-ra --strict-markers"
+
+# ---------------------------------------------------------------------------
+# Coverage
+# ---------------------------------------------------------------------------
+
+[tool.coverage.run]
+source = ["src/mcp_server_linkedin"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+]
